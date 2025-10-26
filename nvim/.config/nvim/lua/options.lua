@@ -1,0 +1,12 @@
+vim.g.mapleader = " " -- Set Leader Key ['SPACE']
+vim.opt.mouse = "" -- Disable Mouse
+vim.opt.number = true -- Show line numbers
+vim.opt.relativenumber = true -- Relative line numbers
+vim.opt.tabstop = 4 -- Set tab width to 4 spaces
+vim.opt.shiftwidth = 4 -- Indentation is 4 spaces
+vim.opt.cursorline = true
+vim.opt.expandtab = true -- Conhevert tabs to spaces
+vim.opt.smartindent = true -- Auto indent new lines
+vim.opt.clipboard = "unnamedplus" -- Use system clipboard
+vim.opt.ignorecase = true
+vim.opt.scrolloff = 999 -- Keep line in center of file

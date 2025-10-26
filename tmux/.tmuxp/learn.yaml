@@ -1,0 +1,16 @@
+session_name: learn
+windows:
+  - window_name: ∆ CODE 
+    shell_command_before: cd ~/Development/pragmatic
+    panes:
+      - nvim 
+  - window_name: ∈ ENV
+    layout: main-vertical
+    shell_command_before: cd ~/Development/pragmatic
+    panes:
+      - ""
+      - ""
+  - window_name: ⋈ CLI
+    shell_command_before: cd ~/Development/pragmatic
+    panes:
+      - ""

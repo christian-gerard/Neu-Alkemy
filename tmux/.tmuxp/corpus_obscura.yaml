@@ -1,0 +1,17 @@
+session_name: corpus_obscura
+windows:
+  - window_name: ∆ CODE 
+    shell_command_before: cd ~/Development/Neu-Alkemy
+    panes:
+      - nvim 
+  - window_name: ∈ ENV
+    layout: main-vertical
+    shell_command_before: cd ~/Development/Neu-Alkemy
+    panes:
+      - ""
+      - ""
+  - window_name: ⋈ CLI
+    shell_command_before: cd ~/Development/Neu-Alkemy
+    panes:
+      - ""
+

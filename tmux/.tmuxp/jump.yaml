@@ -1,0 +1,22 @@
+session_name: jump
+windows:
+  - window_name: ∆ CODE 
+    shell_command_before: cd ~/Jump/api
+    panes:
+      - nvim 
+  - window_name: ⋈ CLI
+    shell_command_before: cd ~/Jump/api
+    panes:
+      - ""
+  - window_name: ∈ ENV
+    layout: main-vertical
+    shell_command_before: cd ~/Jump/api
+    panes:
+      - mix setup && make run_server  
+      - podman compose down && podman compose up  
+      - cd local && caddy run
+  - window_name: ₳ AI
+    layout: main-vertical
+    shell_command_before: cd ~/Jump
+    panes:
+      - codex
