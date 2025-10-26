@@ -1,0 +1,16 @@
+theme = Dracula
+
+font-family = ""
+font-family = "JetBrainsMono Nerd Font Mono"
+
+
+background = "#5F4073" 
+background-opacity = 0.2
+
+font-size = 14
+shell-integration = zsh
+
+
+macos-titlebar-proxy-icon = hidden
+
+title = "🔮🔮🔮🔮🔮"
