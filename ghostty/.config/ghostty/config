@@ -4,6 +4,8 @@ font-family = "JetBrainsMono Nerd Font Mono"
 
 font-size = 14
 shell-integration = zsh
-
+macos-titlebar-style = hidden
+macos-titlebar-proxy-icon = hidden
+macos-icon = holographic
 title = "Neu-Alkemy"
 
