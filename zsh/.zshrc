@@ -65,8 +65,7 @@ DISABLE_AUTO_TITLE="true"
 # hist_stamps="mm/dd/yyyy"
 
 
-
-plugins=(git)
+plugins=(git vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,4 +104,5 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH="/Users/christiangerard/.elixir-ls/elixirls/release:$PATH"
 alias docker=podman
+bindkey -v
 eval "$(starship init zsh)"
