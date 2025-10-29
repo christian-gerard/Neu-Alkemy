@@ -1,0 +1,13 @@
+
+session_name: Neu-Alkemy
+windows:
+  - window_name: 👻 
+    shell_command_before:
+      - cd ~/Neu-Alkemy
+    panes:
+      - ghostty +boo
+  - window_name: NVIM 
+    shell_command_before:
+      - cd ~/Neu-Alkemy
+    panes:
+      - nvim .
