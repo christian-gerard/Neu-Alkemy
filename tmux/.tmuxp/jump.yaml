@@ -1,24 +1,24 @@
 session_name: JUMP
 windows:
-  - window_name: 👻 
+  - window_name: 󱙝 
     shell_command_before:
       - cd ~/Jump
     panes:
       - ghostty +boo
-  - window_name: NVIM 
+  - window_name:  
     shell_command_before:
       - cd ~/Jump/api
     panes:
       - nvim .
-  - window_name: DEV 
+  - window_name:  
     shell_command_before:
       - cd ~/Jump/api
     panes:
       - mix setup && make run_server
       - podman compose down && podman compose up 
       - cd local/ && caddy run 
-  - window_name: AI 
+  - window_name: 󱙺 
     shell_command_before:
       - cd ~/Jump/api
     panes:
-      - codex
+      - opencode

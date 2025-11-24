@@ -1,12 +1,12 @@
 
 session_name: Neu-Alkemy
 windows:
-  - window_name: 👻 
+  - window_name: 󱙝 
     shell_command_before:
       - cd ~/Neu-Alkemy
     panes:
       - ghostty +boo
-  - window_name: NVIM 
+  - window_name:  
     shell_command_before:
       - cd ~/Neu-Alkemy
     panes:
