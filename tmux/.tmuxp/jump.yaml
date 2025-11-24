@@ -14,7 +14,7 @@ windows:
     shell_command_before:
       - cd ~/Jump/api
     panes:
-      - mix setup && make run_server
+      - make run_server
       - podman compose down && podman compose up 
       - cd local/ && caddy run 
   - window_name: 󱙺 
