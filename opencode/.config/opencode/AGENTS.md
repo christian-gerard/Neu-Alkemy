@@ -3,7 +3,6 @@
 Global Agent rules 
 
 ## Code Standards
-
 - Use TypeScript with strict mode enabled
 - Shared code goes in `packages/core/` with proper exports configuration
 - Functions go in `packages/functions/`

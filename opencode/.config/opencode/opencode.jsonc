@@ -14,42 +14,6 @@
         "bash": false,
         "grep": true
       }
-    },
-    "🧑🏼‍🔬 Architect": {
-      "mode": "primary",
-      "model": "anthropic/claude-haiku-4-20250514",
-      "tools": {
-        "write": false,
-        "edit": false,
-        "bash": false
-      }
-    },
-    "👨🏼‍🔧 Craftsman": {
-      "mode": "primary",
-      "model": "anthropic/claude-haiku-4-20250514",
-      "tools": {
-        "write": false,
-        "edit": false,
-        "bash": false
-      }
-    },
-    "👩🏼‍⚖️ Lawyer": {
-      "mode": "primary",
-      "model": "anthropic/claude-haiku-4-20250514",
-      "tools": {
-        "write": false,
-        "edit": false,
-        "bash": false
-      }
-    },
-    "🕵🏼‍♂️ Detective": {
-      "mode": "primary",
-      "model": "anthropic/claude-haiku-4-20250514",
-      "tools": {
-        "write": false,
-        "edit": false,
-        "bash": false
-      }
     }
   }
 }
