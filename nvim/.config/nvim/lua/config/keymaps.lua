@@ -23,8 +23,8 @@ vim.keymap.set("n", "<leader>s", function()
 	vim.cmd("w")
 end, { desc = "Save & Format file" })
 
-map("n", "<leader>Q", ":wqa<CR>", { desc = "Save & Exit" })
-map("n", "<leader>w", ":q<CR>", { desc = "Save & Exit" })
+map("n", "<leader>q", ":wqa<CR>", { desc = "Save & Exit" })
+map("n", "<leader>w", ":bd<CR>", { desc = "Save & Exit" })
 map("i", "jk", "<Esc>", { noremap = true, silent = true }) -- Exit insert mode with 'jk'
 map("v", "jk", "<Esc>", { noremap = true, silent = true }) -- Exit visual mode with 'jk'
 map("t", "jk", "<C-\\><C-n>", { noremap = true, silent = true }) -- Exit terminal mode with 'jk'
@@ -41,9 +41,6 @@ map("n", "<leader>p", ":Telescope find_files<CR>", { noremap = true, silent = tr
 ---------------
 -- >>   BUFFERS / TABS
 ---------------
-map("n", "<leader>rs", ":tab split<CR>", { noremap = true, silent = true, desc = "Tab Split" })
-map("n", "<leader>rl", ":tabNext<CR>", { noremap = true, silent = true, desc = "Tab Next" })
-map("n", "<leader>rh", ":tabprevious<CR>", { noremap = true, silent = true, desc = "Tab Previous" })
 ---
 --- >> Split Window - Vertical
 map("n", "<leader>v", function()
@@ -63,7 +60,6 @@ end, { noremap = true, silent = true, desc = "Split Window Horizontal" })
 ---------------
 ---
 map("n", "<leader>gb", ":Git blame<CR>", { noremap = true, silent = true, desc = "Git Blame" })
-map("n", "<leader>gl", ":Git blame_line<CR>", { noremap = true, silent = true, desc = "Git Blame_Line" })
 ---
 ---------------
 -- >>  TESTING
