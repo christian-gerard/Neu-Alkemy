@@ -11,12 +11,12 @@ windows:
     panes:
       - nvim .
   - window_name:  
+    layout: even-horizontal
     shell_command_before:
       - cd ~/Jump/api
     panes:
       - make run_server
       - podman compose down && podman compose up 
-      - cd local/ && caddy run 
   - window_name: 󱙺 
     shell_command_before:
       - cd ~/Jump/api
