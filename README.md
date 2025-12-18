@@ -1,8 +1,13 @@
 # NEU ALKEMY
-__DotFiles + Config by ** Christian Gerard **__
+__Christian Gerard__
+### Config Files
 
-
-| Folder | Description | Use |
-|:-----------:|:-----------|-----------|
-| NVIM | NeoVim | Code Editor |
-| Ghossty | Terminal | Terminal |
+| Folder |  Use |
+|-----------|-----------|
+| Aerospace | Window & Tiling Manager |
+| Ghossty | Terminal |
+| Nvim |Code Editor |
+| OpenCode | Coding Agents |
+| Scripts | Scripting across devices |
+| Tmux | Multiplexer |
+| Zsh | Shell |
