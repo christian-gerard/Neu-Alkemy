@@ -1,5 +1,5 @@
-theme = Catppuccin Mocha
-
+background-opacity = .4
+background-blur = true
 font-family = "JetBrainsMono Nerd Font Mono"
 
 font-size = 14
@@ -8,4 +8,3 @@ macos-titlebar-style = hidden
 macos-titlebar-proxy-icon = hidden
 
 title = "Neu-Alkemy"
-
