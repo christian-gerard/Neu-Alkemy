@@ -4,7 +4,21 @@ local map = vim.keymap.set
 map("n", "<leader>s", function()
 	local ok, err = pcall(vim.lsp.buf.format)
 	if not ok then
-		vim.notify("Formatting failed: " .. tostring(err), vim.log.levels.WARN)
+		local ft = vim.bo.filetype
+		if ft == "elixir" or ft == "eelixir" or ft == "heex" then
+			vim.notify("Format failed — compiling project and retrying...", vim.log.levels.INFO)
+			local compile_result = vim.fn.system("mix compile")
+			if vim.v.shell_error ~= 0 then
+				vim.notify("mix compile failed:\n" .. compile_result, vim.log.levels.ERROR)
+			else
+				local ok2, err2 = pcall(vim.lsp.buf.format)
+				if not ok2 then
+					vim.notify("Format still failed after compile: " .. tostring(err2), vim.log.levels.WARN)
+				end
+			end
+		else
+			vim.notify("Formatting failed: " .. tostring(err), vim.log.levels.WARN)
+		end
 	end
 	vim.cmd("w")
 end, { desc = "Format + Save" })
