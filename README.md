@@ -4,7 +4,7 @@
         ⠀⠀⠀⠀⠀⣀⣤⣶⣶⣶⣶⣤⣀⠀⠀⠀⠀⠀
         ⠀⠀⠀⣠⣾⣿⡟⠋⠉⠉⠋⢻⣿⣷⣄⠀⠀⠀
         ⠀⢀⣾⣿⠋⠁  ⊹ ◈ ⊹  ⠈⠙⣿⣷⡀⠀
-        ⠀⣿⣿⠁  N E U - A L K E M Y  ⠈⣿⣿⠀
+        ⠀       ⣿⣿⠁  N E U - A L K E M Y  ⠈⣿⣿⠀
         ⠀⢿⣿⡄⠀  ⊹ ◈ ⊹  ⠀⢀⣿⡿⠀
         ⠀⠀⠻⣿⣦⡀⠀⠀⠀⠀⠀⢀⣴⣿⠟⠀⠀
         ⠀⠀⠀⠈⠻⣿⣶⣤⣤⣶⣿⠟⠁⠀⠀⠀
@@ -28,19 +28,19 @@
 
 ```
       ╭──────────────────────────────────────╮
-      │  OS        macOS                      │
-      │  Shell     zsh + oh-my-zsh + starship │
-      │  Terminal  Ghostty                    │
-      │  Editor    Neovim                     │
+      │  **OS**        **macOS**                      │
+      │  Shell     zsh + oh-my-zsh + starship│
+      │  Terminal  Ghostty                   │
+      │  Editor    Neovim                    │
       │  Mux       tmux + tmuxp              │
-      │  WM        AeroSpace                  │
-      │  Theme     Catppuccin Mocha           │
+      │  WM        AeroSpace                 │
+      │  Theme     Catppuccin Mocha          │
       ╰──────────────────────────────────────╯
 ```
 
 ---
 
-### ◈ Structure
+### Structure
 
 Each top-level directory is a **stow package** that symlinks into `$HOME`:
 
@@ -80,7 +80,7 @@ Neu-Alkemy/
 
 ---
 
-### ◈ Quickstart
+### Quickstart
 
 ```bash
 git clone <your-repo-url> ~/Neu-Alkemy
@@ -105,7 +105,7 @@ stow -v -D -d ~/Neu-Alkemy -t ~ nvim tmux zsh
 
 ---
 
-### ◈ Packages
+### Packages
 
 | Package | Config | Description |
 |---------|--------|-------------|
@@ -119,7 +119,7 @@ stow -v -D -d ~/Neu-Alkemy -t ~ nvim tmux zsh
 
 ---
 
-### ◈ Dependencies
+### Dependencies
 
 Installed automatically by `install.sh`:
 
@@ -136,8 +136,3 @@ Installed automatically by `install.sh`:
 | [asdf](https://asdf-vm.com/) | Runtime version manager |
 | [nvm](https://github.com/nvm-sh/nvm) | Node version manager |
 
----
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/footers/gray0_ctp_on_line.svg?sanitize=true" />
-</p>
