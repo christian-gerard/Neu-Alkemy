@@ -1,1 +1,1 @@
-vim.cmd("let test#strategy = 'vimux'")
+-- (autocommands go here)

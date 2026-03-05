@@ -1,6 +1,4 @@
----@diagnostic disable: undefined-field
--- Install Lazy.Vim
-local lazypath = vim.fn.stdpath("data") .. "/lazy.nvim"
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -8,12 +6,12 @@ if not vim.loop.fs_stat(lazypath) then
 		"clone",
 		"--filter=blob:none",
 		"https://github.com/folke/lazy.nvim.git",
-		lazypath("--branch=stable"),
+		"--branch=stable",
+		lazypath,
 	})
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Require
 require("options")
 require("config")
 require("lazy").setup("plugins")
