@@ -3,9 +3,9 @@
 ```
         ⠀⠀⠀⠀⠀⣀⣤⣶⣶⣶⣶⣤⣀⠀⠀⠀⠀⠀
         ⠀⠀⠀⣠⣾⣿⡟⠋⠉⠉⠋⢻⣿⣷⣄⠀⠀⠀
-        ⠀⢀⣾⣿⠋⠁  ⊹ ◈ ⊹  ⠈⠙⣿⣷⡀⠀
-        ⠀       ⣿⣿⠁  N E U - A L K E M Y  ⠈⣿⣿⠀
-        ⠀⢿⣿⡄⠀  ⊹ ◈ ⊹  ⠀⢀⣿⡿⠀
+        ⠀⢀⣾⣿⠋⠁⊹  ⊹  ⠈⠙⣿⣷⡀⠀
+        ⠀⣿⣿⠁          ⠈⣿⣿⠀ NEU ALKEMY
+        ⠀⢿⣿⡄⠀ ⊹   ⊹ ⠀⢀⣿⡿⠀
         ⠀⠀⠻⣿⣦⡀⠀⠀⠀⠀⠀⢀⣴⣿⠟⠀⠀
         ⠀⠀⠀⠈⠻⣿⣶⣤⣤⣶⣿⠟⠁⠀⠀⠀
         ⠀⠀⠀⠀⠀⠈⠉⠛⠛⠉⠁⠀⠀⠀⠀⠀
@@ -13,7 +13,7 @@
 
 </div>
 
-<p align="center">
+<p align="center flex flex-row">
   <a href="#-structure">Structure</a> •
   <a href="#-quickstart">Quickstart</a> •
   <a href="#-packages">Packages</a> •
@@ -21,18 +21,18 @@
 </p>
 
 <p align="center">
-  <i>Personal dotfiles managed with <b>GNU Stow</b> — unified under <b>Catppuccin Mocha</b></i>
+  <i>Personal DotFiles managed via GNU Stow</i>
 </p>
 
 ---
 
 ```
       ╭──────────────────────────────────────╮
-      │  **OS**        **macOS**                      │
+      │  **OS**        **macOS**             │
       │  Shell     zsh + oh-my-zsh + starship│
       │  Terminal  Ghostty                   │
       │  Editor    Neovim                    │
-      │  Mux       tmux + tmuxp              │
+      │  TMux       tmux + tmuxp             │
       │  WM        AeroSpace                 │
       │  Theme     Catppuccin Mocha          │
       ╰──────────────────────────────────────╯
@@ -41,8 +41,6 @@
 ---
 
 ### Structure
-
-Each top-level directory is a **stow package** that symlinks into `$HOME`:
 
 ```
 Neu-Alkemy/
@@ -83,13 +81,13 @@ Neu-Alkemy/
 ### Quickstart
 
 ```bash
-git clone <your-repo-url> ~/Neu-Alkemy
+git clone <https://github.com/christian-gerard/Neu-Alkemy.git> ~/Neu-Alkemy
 cd ~/Neu-Alkemy
 ./install.sh
 ```
 
 The install script will:
-1. Install Homebrew (if missing)
+1. Install Homebrew 
 2. Install all dependencies via `brew`
 3. Stow every package into `$HOME`
 
