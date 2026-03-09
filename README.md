@@ -4,7 +4,7 @@
         ⠀⠀⠀⠀⠀⣀⣤⣶⣶⣶⣶⣤⣀⠀⠀⠀⠀⠀
         ⠀⠀⠀⣠⣾⣿⡟⠋⠉⠉⠋⢻⣿⣷⣄⠀⠀⠀
         ⠀⢀⣾⣿⠋⠁⊹  ⊹  ⠈⠙⣿⣷⡀⠀
-        ⠀⣿⣿⠁          ⠈⣿⣿⠀ NEU ALKEMY
+             ⠀⣿⣿⠁          ⠈⣿⣿⠀ NEU ALKEMY
         ⠀⢿⣿⡄⠀ ⊹   ⊹ ⠀⢀⣿⡿⠀
         ⠀⠀⠻⣿⣦⡀⠀⠀⠀⠀⠀⢀⣴⣿⠟⠀⠀
         ⠀⠀⠀⠈⠻⣿⣶⣤⣤⣶⣿⠟⠁⠀⠀⠀
@@ -13,6 +13,10 @@
 
 </div>
 
+<p align="left">
+  <i>Personal DotFiles managed via GNU Stow</i>
+</p>
+
 <p align="center flex flex-row">
   <a href="#-structure">Structure</a> •
   <a href="#-quickstart">Quickstart</a> •
@@ -20,9 +24,6 @@
   <a href="#-dependencies">Dependencies</a>
 </p>
 
-<p align="center">
-  <i>Personal DotFiles managed via GNU Stow</i>
-</p>
 
 ---
 
