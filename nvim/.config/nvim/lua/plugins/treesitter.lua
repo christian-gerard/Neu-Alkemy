@@ -4,7 +4,7 @@ return {
 	config = function()
 		local config = require("nvim-treesitter.configs")
 		config.setup({
-			ensure_installed = { "elixir", "heex", "html" },
+			ensure_installed = { "elixir", "heex", "html", "markdown", "markdown_inline" },
 			auto_install = true,
 			highlight = { enable = true },
 			indent = { enable = true },
