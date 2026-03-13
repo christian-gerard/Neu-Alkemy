@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(chmod +x:*)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(tmux list-panes:*)",
+      "Bash(xxd /Users/christiangerard/Neu-Alkemy/tmux/window-icon.sh | head -20)"
     ]
   }
 }

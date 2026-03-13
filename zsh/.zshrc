@@ -105,4 +105,5 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="/Users/christiangerard/.elixir-ls/elixirls/release:$PATH"
 alias docker=podman
 bindkey -v
+bindkey -M viins 'jk' vi-cmd-mode
 eval "$(starship init zsh)"

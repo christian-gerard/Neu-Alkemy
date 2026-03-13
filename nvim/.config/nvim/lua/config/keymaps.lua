@@ -51,6 +51,33 @@ end, { silent = true, desc = "Horizontal Split + Find" })
 map("n", "<leader>gb", ":Git blame<CR>", { silent = true, desc = "Git Blame" })
 
 -- Testing
-map("n", "<leader>t", ":TestNearest<CR>", { silent = true, desc = "Test Nearest" })
-map("n", "<leader>T", ":TestFile<CR>", { silent = true, desc = "Test File" })
+local function find_test_file()
+	local file = vim.fn.expand("%:p")
+	if file:match("_test%.exs$") then
+		return nil -- already a test file
+	end
+	-- user.ex -> user_test.exs (same directory)
+	local test_file = file:gsub("%.ex$", "_test.exs")
+	if vim.fn.filereadable(test_file) == 1 then
+		return test_file
+	end
+	return nil
+end
+
+local function open_test_split_and_run(cmd)
+	local test_file = find_test_file()
+	if not test_file then
+		vim.cmd(cmd)
+		return
+	end
+	vim.cmd("vsplit " .. vim.fn.fnameescape(test_file))
+	vim.cmd(cmd)
+end
+
+map("n", "<leader>t", function()
+	open_test_split_and_run("TestNearest")
+end, { silent = true, desc = "Test Nearest" })
+map("n", "<leader>T", function()
+	open_test_split_and_run("TestFile")
+end, { silent = true, desc = "Test File" })
 map("n", "<leader>x", ":TestSuite<CR>", { silent = true, desc = "Test Suite" })

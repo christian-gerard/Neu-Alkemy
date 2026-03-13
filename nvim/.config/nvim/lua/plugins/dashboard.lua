@@ -2,9 +2,9 @@ return {
 	"nvimdev/dashboard-nvim",
 	event = "VimEnter",
 	config = function()
-		-- Alchemist gold/amber highlights
-		vim.api.nvim_set_hl(0, "DashboardHeader", { fg = "#C4A000" })
-		vim.api.nvim_set_hl(0, "DashboardFooter", { fg = "#8B6914" })
+		-- Alchemist purple highlights
+		vim.api.nvim_set_hl(0, "DashboardHeader", { fg = "#9B59B6" })
+		vim.api.nvim_set_hl(0, "DashboardFooter", { fg = "#6C3483" })
 
 		require("dashboard").setup({
 			theme = "hyper",
