@@ -25,6 +25,18 @@ end, { desc = "Format + Save" })
 
 map("n", "<leader>q", ":wqa<CR>", { desc = "Save All + Quit" })
 map("n", "<leader>w", ":bd<CR>", { desc = "Close Buffer" })
+map("n", "<leader>W", ":%bd|e#|bd#<CR>", { silent = true, desc = "Close All Buffers Except Current" })
+
+-- Buffer Navigation
+map("n", "<Tab>", ":BufferLineCycleNext<CR>", { silent = true, desc = "Next Buffer" })
+map("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { silent = true, desc = "Previous Buffer" })
+map("n", "<leader>]", ":BufferLineMoveNext<CR>", { silent = true, desc = "Move Buffer Right" })
+map("n", "<leader>[", ":BufferLineMovePrev<CR>", { silent = true, desc = "Move Buffer Left" })
+for i = 1, 9 do
+	map("n", "<leader>" .. i, function()
+		require("bufferline").go_to(i, true)
+	end, { silent = true, desc = "Go to Buffer " .. i })
+end
 map("i", "jk", "<Esc>", { noremap = true, silent = true })
 map("v", "jk", "<Esc>", { noremap = true, silent = true })
 map("t", "jk", "<C-\\><C-n>", { noremap = true, silent = true })
@@ -33,6 +45,7 @@ map("t", "jk", "<C-\\><C-n>", { noremap = true, silent = true })
 map("n", "<leader>b", ":Neotree toggle<CR>", { silent = true, desc = "Toggle Neo-Tree" })
 map("n", "<leader>f", ":Telescope live_grep<CR>", { silent = true, desc = "Live Grep" })
 map("n", "<leader>p", ":Telescope find_files<CR>", { silent = true, desc = "Find Files" })
+map("n", "<leader>fb", ":Telescope buffers<CR>", { silent = true, desc = "Find Buffers" })
 
 -- Splits
 map("n", "<leader>v", function()
@@ -46,6 +59,12 @@ map("n", "<leader>h", function()
 	vim.cmd("wincmd j")
 	vim.cmd("Telescope find_files")
 end, { silent = true, desc = "Horizontal Split + Find" })
+
+map("n", "<leader>=", "<C-w>=", { silent = true, desc = "Equalize Split Sizes" })
+map("n", "<C-Up>", ":resize +3<CR>", { silent = true, desc = "Increase Split Height" })
+map("n", "<C-Down>", ":resize -3<CR>", { silent = true, desc = "Decrease Split Height" })
+map("n", "<C-Right>", ":vertical resize +3<CR>", { silent = true, desc = "Increase Split Width" })
+map("n", "<C-Left>", ":vertical resize -3<CR>", { silent = true, desc = "Decrease Split Width" })
 
 -- Git
 map("n", "<leader>gb", ":Git blame<CR>", { silent = true, desc = "Git Blame" })
@@ -63,6 +82,31 @@ local function find_test_file()
 	end
 	return nil
 end
+
+local function alternate_file()
+	local file = vim.fn.expand("%:p")
+	if file:match("_test%.exs$") then
+		-- test -> module
+		local module_file = file:gsub("_test%.exs$", ".ex")
+		if vim.fn.filereadable(module_file) == 1 then
+			vim.cmd("edit " .. vim.fn.fnameescape(module_file))
+		else
+			vim.notify("Module file not found: " .. module_file, vim.log.levels.WARN)
+		end
+	elseif file:match("%.ex$") then
+		-- module -> test
+		local test_file = file:gsub("%.ex$", "_test.exs")
+		if vim.fn.filereadable(test_file) == 1 then
+			vim.cmd("edit " .. vim.fn.fnameescape(test_file))
+		else
+			vim.notify("Test file not found: " .. test_file, vim.log.levels.WARN)
+		end
+	else
+		vim.notify("Not an Elixir file", vim.log.levels.WARN)
+	end
+end
+
+map("n", "<leader>a", alternate_file, { silent = true, desc = "Alternate File (Module <-> Test)" })
 
 local function open_test_split_and_run(cmd)
 	local test_file = find_test_file()

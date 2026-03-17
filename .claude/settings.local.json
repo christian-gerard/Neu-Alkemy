@@ -4,7 +4,11 @@
       "Bash(chmod +x:*)",
       "WebSearch",
       "Bash(tmux list-panes:*)",
-      "Bash(xxd /Users/christiangerard/Neu-Alkemy/tmux/window-icon.sh | head -20)"
+      "Bash(xxd /Users/christiangerard/Neu-Alkemy/tmux/window-icon.sh | head -20)",
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Read(//Users/christiangerard/Neu-Alkemy/**)",
+      "Bash(done)"
     ]
   }
 }

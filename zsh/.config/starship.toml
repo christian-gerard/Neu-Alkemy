@@ -19,7 +19,7 @@ $line_break\
 $character
 """
 
-palette = 'catppuccin_mocha'
+palette = 'neu_alkemy'
 
 [directory]
 style = "bold blue"
@@ -34,7 +34,7 @@ read_only_style = "red"
 "Downloads" = " "
 "Pictures" = " "
 "Neu-Alkemy" = "⚗️ "
-"Jump" = "🍏"
+"Jump" = "🌊"
 
 [git_branch]
 symbol = "  "
@@ -125,30 +125,30 @@ vimcmd_visual_symbol = '[❮](bold yellow)'
 min_time = 2000
 format = '[took $duration](bold overlay1)'
 
-[palettes.catppuccin_mocha]
-rosewater = "#f5e0dc"
-flamingo = "#f2cdcd"
-pink = "#f5c2e7"
-mauve = "#cba6f7"
-red = "#f38ba8"
-maroon = "#eba0ac"
-peach = "#fab387"
-yellow = "#f9e2af"
-green = "#a6e3a1"
-teal = "#94e2d5"
-sky = "#89dceb"
-sapphire = "#74c7ec"
-blue = "#89b4fa"
-lavender = "#b4befe"
-text = "#cdd6f4"
-subtext1 = "#bac2de"
-subtext0 = "#a6adc8"
-overlay2 = "#9399b2"
-overlay1 = "#7f849c"
-overlay0 = "#6c7086"
-surface2 = "#585b70"
-surface1 = "#45475a"
+[palettes.neu_alkemy]
+rosewater = "#E8D5D0"
+flamingo = "#D5A6A6"
+pink = "#DBA8D4"
+mauve = "#B07CC6"
+red = "#E05A5A"
+maroon = "#D4727A"
+peach = "#D9A076"
+yellow = "#E0C06E"
+green = "#8FBF9A"
+teal = "#8AC5C0"
+sky = "#89B8D4"
+sapphire = "#7EAAF0"
+blue = "#7C6FE0"
+lavender = "#C4A7E7"
+text = "#D4D8F0"
+subtext1 = "#B8BDD0"
+subtext0 = "#A0A5B8"
+overlay2 = "#9399B2"
+overlay1 = "#7F849C"
+overlay0 = "#6C7086"
+surface2 = "#585B70"
+surface1 = "#45475A"
 surface0 = "#313244"
-base = "#1e1e2e"
+base = "#1E1E2E"
 mantle = "#181825"
-crust = "#11111b"
+crust = "#11111B"

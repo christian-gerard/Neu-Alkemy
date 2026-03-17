@@ -1,0 +1,42 @@
+# Neu Alkemy — Midnight Variant
+# A deep, ultra-dark theme for late-night sessions.
+
+[meta]
+name = "Neu Alkemy Midnight"
+variant = "midnight"
+
+[base]
+rosewater = "#E0CCC7"
+flamingo  = "#CC9E9E"
+pink      = "#D2A0CC"
+mauve     = "#A874BE"
+red       = "#D85252"
+maroon    = "#CC6A72"
+peach     = "#D0986E"
+yellow    = "#D8B866"
+green     = "#87B792"
+teal      = "#82BDB8"
+sky       = "#81B0CC"
+sapphire  = "#76A2E8"
+blue      = "#7467D8"
+lavender  = "#BC9FDF"
+
+[text]
+text     = "#CCD0E8"
+subtext1 = "#B0B5C8"
+subtext0 = "#989DB0"
+
+[overlay]
+overlay2 = "#8B91AA"
+overlay1 = "#777D96"
+overlay0 = "#6A7088"
+
+[surface]
+surface2 = "#4A4D5E"
+surface1 = "#363A4F"
+surface0 = "#262734"
+
+[background]
+base   = "#0C0C18"
+mantle = "#080812"
+crust  = "#050508"
