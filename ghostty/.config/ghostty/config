@@ -8,3 +8,31 @@ macos-titlebar-style = hidden
 macos-titlebar-proxy-icon = hidden
 
 title = "Neu-Alkemy"
+
+# Neu Alkemy Color Theme
+foreground = #D4D8F0
+background = #1E1E2E
+cursor-color = #B07CC6
+cursor-text = #1E1E2E
+selection-foreground = #D4D8F0
+selection-background = #45475A
+
+# ANSI Normal (0-7)
+palette = 0=#45475A
+palette = 1=#E05A5A
+palette = 2=#8FBF9A
+palette = 3=#E0C06E
+palette = 4=#7C6FE0
+palette = 5=#B07CC6
+palette = 6=#8AC5C0
+palette = 7=#B8BDD0
+
+# ANSI Bright (8-15)
+palette = 8=#585B70
+palette = 9=#D4727A
+palette = 10=#8FBF9A
+palette = 11=#E0C06E
+palette = 12=#7EAAF0
+palette = 13=#C4A7E7
+palette = 14=#89B8D4
+palette = 15=#D4D8F0

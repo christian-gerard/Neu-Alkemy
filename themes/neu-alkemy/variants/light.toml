@@ -1,0 +1,42 @@
+# Neu Alkemy — Light Variant
+# A bright theme for daytime or high-ambient-light environments.
+
+[meta]
+name = "Neu Alkemy Light"
+variant = "light"
+
+[base]
+rosewater = "#9C6B5E"
+flamingo  = "#A05858"
+pink      = "#A8589E"
+mauve     = "#7B3FA0"
+red       = "#C03030"
+maroon    = "#B84050"
+peach     = "#B07040"
+yellow    = "#A08030"
+green     = "#4A8858"
+teal      = "#3A8A84"
+sky       = "#3A7A9E"
+sapphire  = "#3A60C0"
+blue      = "#4A38B0"
+lavender  = "#6A50B0"
+
+[text]
+text     = "#3C3F55"
+subtext1 = "#4C4F65"
+subtext0 = "#5C5F75"
+
+[overlay]
+overlay2 = "#6C6F85"
+overlay1 = "#7C7F95"
+overlay0 = "#8C8FA5"
+
+[surface]
+surface2 = "#ACB0BE"
+surface1 = "#BCC0CC"
+surface0 = "#CCD0DA"
+
+[background]
+base   = "#EEF0F8"
+mantle = "#E4E6F0"
+crust  = "#DADCe8"
