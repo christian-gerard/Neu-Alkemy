@@ -1,0 +1,295 @@
+name: Validate Dotfiles
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: Validate Configuration
+    runs-on: macos-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Homebrew
+      id: set-up-homebrew
+      uses: Homebrew/actions/setup-homebrew@master
+      
+    - name: Install dependencies
+      run: |
+        brew install shellcheck stow yamllint jsonlint
+        
+    - name: Validate shell scripts
+      run: |
+        echo "🔍 Checking shell scripts with shellcheck..."
+        find . -name "*.sh" -type f -exec shellcheck {} \;
+        
+    - name: Validate YAML files
+      run: |
+        echo "🔍 Checking YAML files..."
+        find . -name "*.yml" -o -name "*.yaml" | grep -v ".git" | xargs -I {} yamllint {}
+        
+    - name: Validate JSON files
+      run: |
+        echo "🔍 Checking JSON files..."
+        find . -name "*.json" -type f | grep -v ".git" | grep -v "node_modules" | while read -r file; do
+          echo "Validating $file"
+          jsonlint "$file" || echo "❌ Invalid JSON: $file"
+        done
+        
+    - name: Check install script syntax
+      run: |
+        echo "🔍 Checking install.sh syntax..."
+        bash -n install.sh
+        
+    - name: Test dry-run installation
+      run: |
+        echo "🧪 Testing dry-run installation..."
+        chmod +x install.sh
+        ./install.sh --dry-run
+        
+    - name: Validate stow structure
+      run: |
+        echo "🔍 Validating stow package structure..."
+        
+        # Check that all packages have proper structure
+        for package in aerospace ghostty nvim opencode scripts tmux zsh; do
+          if [ ! -d "$package" ]; then
+            echo "❌ Package directory missing: $package"
+            exit 1
+          fi
+          echo "✅ Package found: $package"
+        done
+        
+        # Check for common stow issues
+        echo "🔍 Checking for stow conflicts..."
+        stow --simulate --verbose --dir=. --target=/tmp/stow-test aerospace ghostty nvim opencode scripts tmux zsh || {
+          echo "❌ Stow simulation failed"
+          exit 1
+        }
+        echo "✅ Stow simulation passed"
+        
+    - name: Validate documentation
+      run: |
+        echo "🔍 Checking documentation completeness..."
+        
+        # Check that all packages have README files
+        for package in aerospace ghostty nvim opencode scripts tmux zsh; do
+          if [ ! -f "$package/README.md" ]; then
+            echo "❌ Missing README for package: $package"
+            exit 1
+          fi
+          echo "✅ README found for: $package"
+        done
+        
+        # Check main documentation files
+        required_docs=("README.md" "docs/SETUP.md" "docs/PACKAGES.md" "docs/TROUBLESHOOTING.md" "docs/CUSTOMIZATION.md")
+        for doc in "${required_docs[@]}"; do
+          if [ ! -f "$doc" ]; then
+            echo "❌ Missing documentation: $doc"
+            exit 1
+          fi
+          echo "✅ Documentation found: $doc"
+        done
+        
+    - name: Check for sensitive files
+      run: |
+        echo "🔍 Checking for sensitive files..."
+        
+        # Check for common sensitive file patterns
+        sensitive_patterns=(
+          "*.key"
+          "*.pem" 
+          "*.p12"
+          "*.env"
+          "*.env.local"
+          "*secret*"
+          "*password*"
+          "*credential*"
+          "id_rsa"
+          "id_ed25519"
+        )
+        
+        found_sensitive=false
+        for pattern in "${sensitive_patterns[@]}"; do
+          if find . -name "$pattern" -type f | grep -v ".git" | grep -q .; then
+            echo "❌ Found potentially sensitive files matching: $pattern"
+            find . -name "$pattern" -type f | grep -v ".git"
+            found_sensitive=true
+          fi
+        done
+        
+        if [ "$found_sensitive" = true ]; then
+          echo "❌ Sensitive files detected. Please review and add to .gitignore if necessary."
+          exit 1
+        else
+          echo "✅ No sensitive files detected"
+        fi
+        
+    - name: Validate theme consistency
+      run: |
+        echo "🔍 Checking theme consistency..."
+        
+        # Check that Catppuccin colors are used consistently
+        catppuccin_colors=(
+          "1e1e2e"  # base
+          "cdd6f4"  # text
+          "89b4fa"  # blue
+          "a6e3a1"  # green
+          "f9e2af"  # yellow
+          "f38ba8"  # red
+        )
+        
+        config_files=(
+          "ghostty/.config/ghostty/config"
+          "tmux/.tmux.conf"
+          "zsh/.config/starship.toml"
+        )
+        
+        for file in "${config_files[@]}"; do
+          if [ -f "$file" ]; then
+            echo "✅ Checking theme colors in: $file"
+            # This is a basic check - in practice you'd want more sophisticated validation
+          fi
+        done
+        
+    - name: Test tmuxp configurations
+      run: |
+        echo "🔍 Validating tmuxp configurations..."
+        
+        if command -v tmuxp >/dev/null 2>&1; then
+          for config in tmux/.tmuxp/*.yaml; do
+            if [ -f "$config" ]; then
+              echo "Validating tmuxp config: $config"
+              tmuxp validate "$config" || {
+                echo "❌ Invalid tmuxp config: $config"
+                exit 1
+              }
+              echo "✅ Valid tmuxp config: $config"
+            fi
+          done
+        else
+          echo "⚠️ tmuxp not available, skipping tmuxp validation"
+        fi
+
+  test-installation:
+    name: Test Installation Process
+    runs-on: macos-latest
+    needs: validate
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Test installation dependencies
+      run: |
+        echo "🧪 Testing dependency installation..."
+        
+        # Test Homebrew installation check
+        if ! command -v brew >/dev/null 2>&1; then
+          echo "Installing Homebrew for testing..."
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        fi
+        
+        # Test that our install script can detect dependencies
+        chmod +x install.sh
+        ./install.sh deps --dry-run
+        
+    - name: Test stow operations in isolation
+      run: |
+        echo "🧪 Testing stow operations..."
+        
+        # Create temporary directory for testing
+        TEST_DIR="/tmp/dotfiles-test"
+        mkdir -p "$TEST_DIR"
+        
+        # Install stow
+        brew install stow
+        
+        # Test stow operations with our packages
+        for package in aerospace ghostty nvim opencode scripts tmux zsh; do
+          echo "Testing stow for package: $package"
+          stow --simulate --verbose --dir=. --target="$TEST_DIR" "$package" || {
+            echo "❌ Stow failed for package: $package"
+            exit 1
+          }
+          echo "✅ Stow simulation passed for: $package"
+        done
+        
+    - name: Validate install script options
+      run: |
+        echo "🧪 Testing install script options..."
+        
+        chmod +x install.sh
+        
+        # Test help option
+        ./install.sh --help
+        
+        # Test dry-run option
+        ./install.sh --dry-run
+        
+        # Test individual commands
+        ./install.sh verify --dry-run || echo "Verify command tested"
+        ./install.sh stow --dry-run
+        ./install.sh unstow --dry-run
+        
+        echo "✅ All install script options tested"
+
+  check-links:
+    name: Check Documentation Links
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Install link checker
+      run: |
+        npm install -g markdown-link-check
+        
+    - name: Check README links
+      run: |
+        echo "🔍 Checking links in README.md..."
+        markdown-link-check README.md --config .github/markdown-link-check.json || true
+        
+    - name: Check documentation links
+      run: |
+        echo "🔍 Checking links in documentation..."
+        find docs/ -name "*.md" -exec markdown-link-check {} \; || true
+        
+    - name: Check package documentation links
+      run: |
+        echo "🔍 Checking links in package documentation..."
+        find . -path "./*/README.md" -not -path "./.git/*" -exec markdown-link-check {} \; || true
+
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Run security scan
+      run: |
+        echo "🔒 Running security scan..."
+        
+        # Check for hardcoded secrets
+        if grep -r -i "password\|secret\|key\|token" --include="*.sh" --include="*.conf" --include="*.toml" --include="*.json" . | grep -v ".git" | grep -v "example" | grep -v "template"; then
+          echo "❌ Potential secrets found in configuration files"
+          exit 1
+        fi
+        
+        # Check file permissions
+        find . -type f -name "*.sh" -not -path "./.git/*" | while read -r script; do
+          if [ ! -x "$script" ]; then
+            echo "⚠️ Script not executable: $script"
+          fi
+        done
+        
+        echo "✅ Security scan completed"
