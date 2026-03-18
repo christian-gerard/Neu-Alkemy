@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(chmod +x:*)",
+      "WebSearch",
+      "Bash(tmux list-panes:*)",
+      "Read(//Users/YOUR_USERNAME/Neu-Alkemy/**)",
+      "WebFetch(domain:opencode.ai)"
+    ]
+  }
+}

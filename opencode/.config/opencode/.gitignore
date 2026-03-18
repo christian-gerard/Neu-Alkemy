@@ -1,0 +1,6 @@
+# OpenCode specific ignores
+# (node_modules, package.json, bun.lock now handled by root .gitignore)
+
+# OpenCode runtime files
+tui.json.bak
+*.tui-migration.bak
