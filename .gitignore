@@ -83,3 +83,6 @@ jspm_packages/
 
 # Tool-specific directories
 .expert/
+
+# Claude local settings
+.claude/settings.local.json
