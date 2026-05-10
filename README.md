@@ -12,15 +12,6 @@
 ```
 
 # Neu-Alkemy Dotfiles
-*By Christian Gerard*
-</div>
-
-<div align="center">
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![macOS](https://img.shields.io/badge/macOS-12%2B-blue)](https://www.apple.com/macos/)
-[![Stow](https://img.shields.io/badge/GNU-Stow-green)](https://www.gnu.org/software/stow/)
-[![Catppuccin](https://img.shields.io/badge/Theme-Catppuccin-pink)](https://github.com/catppuccin/catppuccin)
-</div>
 
 ## 🛠️ Tech Stack
 
@@ -94,32 +85,3 @@ stow --adopt -d ~/Neu-Alkemy -t ~ package-name
 | **[tmux](tmux/)** | `~/.tmux.conf` | Terminal multiplexer with custom theme |
 | **[zsh](zsh/)** | `~/.zshrc` | Zsh shell with oh-my-zsh and Starship |
 
-> **📖 Detailed package documentation**: [docs/PACKAGES.md](docs/PACKAGES.md)
-
-## 📚 Documentation
-
-| Guide | Description |
-|-------|-------------|
-| **[Setup Guide](docs/SETUP.md)** | Detailed installation and post-setup instructions |
-| **[Package Docs](docs/PACKAGES.md)** | In-depth documentation for each package |
-| **[Troubleshooting](docs/TROUBLESHOOTING.md)** | Common issues and solutions |
-| **[Customization](docs/CUSTOMIZATION.md)** | How to customize and extend the dotfiles |
-
-## 🔧 Dependencies
-
-The following tools are installed automatically:
-
-**Core Tools:**
-- [GNU Stow](https://www.gnu.org/software/stow/) - Symlink manager
-- [Neovim](https://neovim.io/) - Modern text editor
-- [Tmux](https://github.com/tmux/tmux) - Terminal multiplexer
-- [Starship](https://starship.rs/) - Cross-shell prompt
-
-**GUI Applications:**
-- [Ghostty](https://ghostty.org/) - GPU-accelerated terminal
-- [AeroSpace](https://github.com/nikitabobko/AeroSpace) - Tiling window manager
-- [JetBrains Mono Nerd Font](https://www.nerdfonts.com/) - Programming font
-
-**Additional Tools:**
-- [tmuxp](https://github.com/tmux-python/tmuxp) - Session manager
-- [asdf](https://asdf-vm.com/) - Runtime version manager

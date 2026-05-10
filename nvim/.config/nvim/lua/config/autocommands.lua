@@ -1,3 +1,16 @@
+-- Salesforce file extensions
+vim.filetype.add({
+	extension = {
+		cls = "apex",
+		trigger = "apex",
+		apex = "apex",
+		soql = "soql",
+		sosl = "sosl",
+		page = "html",
+		component = "html",
+	},
+})
+
 -- Restore cursor position when reopening a file
 vim.api.nvim_create_autocmd("BufReadPost", {
 	callback = function()
