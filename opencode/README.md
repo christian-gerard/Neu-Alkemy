@@ -14,17 +14,9 @@ OpenCode is an AI-powered coding assistant that provides intelligent code comple
   - `themes/` - Theme configurations
   - `skills/` - Specialized skills and workflows
 
-## Key Features
-
-- **🤖 Custom Agents**: Specialized AI agents for different development tasks
-- **🎨 Neu-Alkemy Theme**: Consistent theming with the rest of the dotfiles
-- **🛠️ Skills System**: Reusable workflows and code patterns
-- **⚡ Fast Integration**: Quick access to AI assistance during development
-- **🔧 Customizable**: Easily extendable with new agents and skills
-
-## Custom Agents
 
 ### Metis - The Planner
+Named for the Titan goddess of wisdom and cunning counsel — Zeus's first advisor, whose strategic mind was so powerful he consumed her to keep her foresight within him.
 **Purpose**: Architecture and planning specialist
 - System design and architecture decisions
 - Project planning and task breakdown
